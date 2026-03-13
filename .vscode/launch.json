@@ -2,39 +2,8 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "调试当前文件 (GDB)",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${fileDirname}",
-            "environment": [
-                {
-                    "name": "PATH",
-                    "value": "E:/Opencv/opencv/build/x64/vc16/bin;E:/msys64/ucrt64/bin;${env:PATH}"
-                }
-            ],
-            "externalConsole": false,
-            "MIMode": "gdb",
-            "miDebuggerPath": "E:/msys64/ucrt64/bin/gdb.exe",
-            "setupCommands": [
-                {
-                    "description": "为 gdb 启用整齐打印",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                },
-                {
-                    "description": "将反汇编风格设置为 Intel",
-                    "text": "-gdb-set disassembly-flavor intel",
-                    "ignoreFailures": true
-                }
-            ],
-            "preLaunchTask": "C/C++: clang++.exe 生成活动文件"
-        },
-        {
-            "name": "运行当前文件 (无调试)",
-            "type": "cppdbg",
+            "name": "调试当前文件",
+            "type": "cppvsdbg",
             "request": "launch",
             "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
             "args": [],
@@ -46,9 +15,24 @@
                     "value": "E:/Opencv/opencv/build/x64/vc16/bin;${env:PATH}"
                 }
             ],
-            "externalConsole": true,
-            "MIMode": "gdb",
-            "miDebuggerPath": "E:/msys64/ucrt64/bin/gdb.exe",
+            "console": "integratedTerminal",
+            "preLaunchTask": "C/C++: clang++.exe 生成活动文件"
+        },
+        {
+            "name": "运行当前文件 (外部控制台)",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [
+                {
+                    "name": "PATH",
+                    "value": "E:/Opencv/opencv/build/x64/vc16/bin;${env:PATH}"
+                }
+            ],
+            "console": "externalTerminal",
             "preLaunchTask": "C/C++: clang++.exe 生成活动文件"
         }
     ]

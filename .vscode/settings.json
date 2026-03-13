@@ -13,31 +13,24 @@
     "terminal.integrated.defaultProfile.windows": "PowerShell (UTF-8)",
     
     // ===== C++ 调试器配置 - 使用 GDB 调试器 =====
-    // 指定编译器路径
     "C_Cpp.default.compilerPath": "E:/LLVM/bin/clang++.exe",
-    
-    // 默认的调试器类型
+    "C_Cpp.debugShortcut": false,
     "C_Cpp.default.cppStandard": "c++17",
     "C_Cpp.default.cStandard": "c17",
-    
-    // IntelliSense 模式
     "C_Cpp.default.intelliSenseMode": "windows-clang-x64",
-    
-    // 调试控制台设置
     "debug.internalConsoleOptions": "openOnSessionStart",
     "debug.openDebug": "openOnDebugBreak",
     "debug.showBreakpointsInOverviewRuler": true,
     "debug.showInlineBreakpointCandidates": true,
-    
+
     // ===== Code Runner 配置 - 使用 clang++ 编译 OpenCV 程序 =====
     "code-runner.executorMap": {
-        "cpp": "cd $dir; $env:PATH='E:/Opencv/opencv/build/x64/vc16/bin;'+$env:PATH; E:/LLVM/bin/clang++.exe -fcolor-diagnostics -g -I E:/Opencv/opencv/build/include $fileName -L E:/Opencv/opencv/build/x64/vc16/lib -lopencv_world4120 -o $fileNameWithoutExt.exe; if ($?) { .\\$fileNameWithoutExt.exe }"
+        "cpp": "chcp 65001 | Out-Null; cd $dir; $env:PATH='E:/Opencv/opencv/build/x64/vc16/bin;'+$env:PATH; E:/LLVM/bin/clang++.exe -fcolor-diagnostics -g -I E:/Opencv/opencv/build/include $fileName -L E:/Opencv/opencv/build/x64/vc16/lib -lopencv_world4120 -o $fileNameWithoutExt.exe; if ($?) { .\\$fileNameWithoutExt.exe }"
     },
     "code-runner.runInTerminal": true,
     "code-runner.saveFileBeforeRun": true,
     "code-runner.saveAllFilesBeforeRun": false,
     "code-runner.preserveFocus": false,
     "code-runner.clearPreviousOutput": false,
-    "code-runner.ignoreSelection": true,
-    "C_Cpp.errorSquiggles": "disabled"
+    "code-runner.ignoreSelection": true
 }
