@@ -4,8 +4,7 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "E:/Opencv/opencv/build/include",
-                "E:/msys64/ucrt64/include"
+                "E:/Opencv/opencv/build/include"
             ],
             "defines": [
                 "_DEBUG",
@@ -15,8 +14,7 @@
             "compilerPath": "E:/LLVM/bin/clang++.exe",
             "cStandard": "c17",
             "cppStandard": "c++17",
-            "intelliSenseMode": "windows-clang-x64",
-            "configurationProvider": "ms-vscode.cpptools"
+            "intelliSenseMode": "windows-clang-x64"
         }
     ],
     "version": 4
