@@ -7,6 +7,8 @@
 #define M_PI 3.14159265358979323846
 #endif
 
+//unsigned double是什么鬼
+
 // 假设全局参数：采样频率和基础频率
 const double SAMPLE_RATE = 1000.0; // 1秒1000个点
 const double CARRIER_FREQ = 50.0;  // 载波频率 50Hz
@@ -125,7 +127,7 @@ int modulate_analog_phase(double *cover, const int cover_len, const double *mess
 }
 
 // --- 测试与展示 ---
-void print_signal(const std::string& name, double* sig, int len) {
+void print_signal(const std::string& name,double* sig, int len) {
     std::cout << name << " (前10个采样点): ";
     for(int i=0; i<10; ++i) std::cout << std::fixed << std::setprecision(2) << sig[i] << " ";
     std::cout << "..." << std::endl;
