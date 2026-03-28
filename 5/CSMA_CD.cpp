@@ -16,12 +16,14 @@ enum class ChannelState { IDLE, BUSY, COLLISION };
 
 class EthernetBus {
 public:
+    // 互斥锁
     std::mutex mtx;
     ChannelState state = ChannelState::IDLE;
     int active_stations = 0;
 
     // 载波侦听
     bool is_idle() {
+        // lock_guard 自动锁线程
         std::lock_guard<std::mutex> lock(mtx);
         return state == ChannelState::IDLE;
     }
@@ -29,6 +31,7 @@ public:
     // 尝试占用信道
     void start_transmitting() {
         std::lock_guard<std::mutex> lock(mtx);
+        // 获取到锁后增加活动站点
         active_stations++;
         if (active_stations > 1) {
             state = ChannelState::COLLISION;
@@ -48,24 +51,27 @@ public:
         }
     }
 
+    // 冲突检测：检查当前是不是处于冲突状态
     bool check_collision() {
         std::lock_guard<std::mutex> lock(mtx);
         return state == ChannelState::COLLISION;
     }
 };
 
+// 站点类
 class Station {
 private:
-    int id;
-    EthernetBus& bus;
-    std::mt19937 rng;
+    int id;             // 站点编号
+    EthernetBus& bus;   // 总线
+    std::mt19937 rng;   // 随机数生成器
 
 public:
     Station(int _id, EthernetBus& _bus) 
         : id(_id), bus(_bus), rng(std::random_device{}()) {}
 
+    // 发送帧
     void send_frame() {
-        int attempts = 0;
+        int attempts = 0;       // 重传次数
         bool success = false;
 
         while (attempts < MAX_ATTEMPTS && !success) {
