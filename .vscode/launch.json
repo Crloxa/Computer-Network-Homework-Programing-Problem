@@ -16,7 +16,7 @@
                 }
             ],
             "console": "integratedTerminal",
-            "preLaunchTask": "C/C++: clang++.exe 生成活动文件"
+            "preLaunchTask": "C/C++: g++ 生成活动文件"
         },
         {
             "name": "运行当前文件 (外部控制台)",
@@ -33,7 +33,7 @@
                 }
             ],
             "console": "externalTerminal",
-            "preLaunchTask": "C/C++: clang++.exe 生成活动文件"
+            "preLaunchTask": "C/C++: g++ 生成活动文件"
         }
     ]
 }

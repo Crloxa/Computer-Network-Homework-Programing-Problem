@@ -1,5 +1,7 @@
-
-#include<iostream>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
 using namespace std;
 
 const int INF = 1e9;

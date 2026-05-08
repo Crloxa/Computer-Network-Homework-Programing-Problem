@@ -1,4 +1,7 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
 using namespace std;
 
 const int INF = 16; // RIP 最大跳数

@@ -3,11 +3,9 @@
     "tasks": [
         {
             "type": "cppbuild",
-            "label": "C/C++: clang++.exe 生成活动文件",
-            "command": "E:\\LLVM\\bin\\clang++.exe",
+            "label": "C/C++: g++ 生成活动文件",
+            "command": "g++",
             "args": [
-                "-fcolor-diagnostics",
-                "-fansi-escape-codes",
                 "-g",
                 "-I",
                 "E:/Opencv/opencv/build/include",
@@ -16,7 +14,7 @@
                 "E:/Opencv/opencv/build/x64/vc16/lib",
                 "-lopencv_world4120",
                 "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                "${fileBasenameNoExtension}.exe"
             ],
             "options": {
                 "cwd": "${fileDirname}",
@@ -31,7 +29,7 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "detail": "使用 clang++ 编译 OpenCV C++ 程序"
+            "detail": "使用 g++ 编译 OpenCV C++ 程序（保留 OpenCV include/link 设置）"
         },
         {
             "type": "shell",
